@@ -1,6 +1,6 @@
 UID = $(shell id -u)
 GID = $(shell id -g)
-PKGNAME = "s3uploader"
+PKGNAME = "github.com/simonpahl/s3uploader"
 PKGPATH = "/go/src/$(PKGNAME)"
 GOCACHE = ".gocache"
 GOLANGIMAGE = "golang:1.9"
