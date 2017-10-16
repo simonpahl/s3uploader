@@ -1,2 +1,4 @@
 .gocache
 s3uploader
+/vendor
+!/vendor/vendor.json
