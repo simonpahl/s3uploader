@@ -6,7 +6,7 @@ GOCACHE = ".gocache"
 GOLANGIMAGE = "golang:1.9"
 GOEXEC = docker run -it -u $(UID):$(GID) -v $(PWD)/$(GOCACHE):/go --rm -v $(PWD):$(PKGPATH) -w $(PKGPATH) $(GOLANGIMAGE)
 
-build: vendor
+build:
 	@-$(GOEXEC) go build -v
 
 console: tools

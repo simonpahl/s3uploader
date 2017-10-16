@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-
 	regionFlag := flag.String("region", "eu-central-1", "aws region")
 	bucketFlag := flag.String("bucket", "my-s3-bucket", "s3 bucket to upload to")
 	keynameFlag := flag.String("keyname", "file.txt", "key of the file that is uploaded")
@@ -31,11 +30,6 @@ func main() {
 	fmt.Println("bucket:", bucket)
 	fmt.Println("key:", keyname)
 	fmt.Println("filename:", filename)
-
-	//creds := credentials.NewChainCredentials([]credentials.Provider{
-	//	&credentials.EnvProvider{},
-	//	&credentials.SharedCredentialsProvider{},
-	//})
 
 	sess := session.Must(session.NewSession(&aws.Config{
 		Region: aws.String(region),
@@ -60,5 +54,4 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Printf("file uploaded to, %s\n", aws.StringValue(&result.Location))
-
 }
