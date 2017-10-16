@@ -13,7 +13,7 @@ func main() {
 
 	regionFlag := flag.String("region", "eu-central-1", "aws region")
 	bucketFlag := flag.String("bucket", "my-s3-bucket", "s3 bucket to upload to")
-	keynameFlag := flag.String("keyname", "file", "key of the file that is uploaded")
+	keynameFlag := flag.String("keyname", "file.txt", "key of the file that is uploaded")
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "Usage of %s [options] filename:\n", os.Args[0])
         flag.PrintDefaults()
