@@ -177,5 +177,5 @@
 			"revisionTime": "2016-08-03T19:07:31Z"
 		}
 	],
-	"rootPath": "s3uploader"
+	"rootPath": "github.com/simonpahl/s3uploader"
 }
