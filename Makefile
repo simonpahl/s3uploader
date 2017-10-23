@@ -9,18 +9,21 @@ GOEXEC = docker run -it -u $(UID):$(GID) -v $(PWD)/$(GOCACHE):/go --rm -v $(PWD)
 build: ensure
 	@-$(GOEXEC) go build -v -ldflags="-s -w"
 
-console: tools
-	echo "Opening Console"
+console: dep
+	@-echo "Opening Console"
 	@-$(GOEXEC) bash
 
-ensure: tools
-	echo "Ensuring dependencies are installed"
+ensure: dep
+	@-echo "Ensuring dependencies are installed"
 	@-$(GOEXEC) dep ensure
 
-tools:
-	echo "Ensuring dependencies are installed"
-	@-mkdir -p .gocache/src/$(PKGNAME)
+dep: prepare
+	@-echo "Installing Dep"
 	@-$(GOEXEC) go get -u github.com/golang/dep/cmd/dep
+
+prepare:
+	@-echo "Preparing GOPATH"
+	@-mkdir -p .gocache/src/$(PKGNAME)
 
 clean:
 	@-rm -rf .gocache vendor
